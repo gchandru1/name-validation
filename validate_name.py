@@ -4,8 +4,6 @@ import pandas
 import sys
 import unidecode
 
-reload(sys)
-sys.setdefaultencoding('Cp1252')
 
 def is_valid_name(full_name):
 
@@ -41,7 +39,7 @@ def is_valid_name(full_name):
 
 	return True
 
-path = 'https://raw.githubusercontent.com/chandru/name-validation/master/datasets/'
+path = 'https://raw.githubusercontent.com/gchandru1/name-validation/master/Datasets/'
 
 df1 = pandas.read_csv(path + 'CSV_Database_of_First_Names.csv')
 for name in df1[df1.columns[0]] :
@@ -49,11 +47,13 @@ for name in df1[df1.columns[0]] :
 	if isinstance(name_ascii, str) : 
 		is_valid_name(name_ascii)
 
+
 df2 = pandas.read_csv(path + 'CSV_Database_of_Last_Names.csv')
 for name in df2[df2.columns[0]] :
 	name_ascii = unidecode.unidecode(name)
 	if isinstance(name_ascii, str) : 
 		is_valid_name(name_ascii)
+
 
 df3 = pandas.read_csv(path + 'chicago_employees.csv')
 for name in df3[df3.columns[0]] :
@@ -61,8 +61,9 @@ for name in df3[df3.columns[0]] :
 	if isinstance(name_ascii, str) : 
 		is_valid_name(name_ascii)
 
+
 df4 = pandas.read_csv(path + 'fifa_players_2012.csv')
-for name in df4[df4.columns[0]] :
+for name in df4[df4.columns[1]] :
 	name_ascii = unidecode.unidecode(name)
 	if isinstance(name_ascii, str) : 
 		is_valid_name(name_ascii)
@@ -73,7 +74,3 @@ for name in df5[df5.columns[0]] :
 	name_ascii = unidecode.unidecode(name)
 	if isinstance(name_ascii, str) : 
 		is_valid_name(name_ascii)
-
-
-
-
